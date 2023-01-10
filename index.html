@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <title>CLP</title>
+</head>
+<body class="bg-light">
+    <div class="header">
+        <a href="doc.html">Documentação</a>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card main-card">
+                    <div class="card-body">
+                        <h4 style="margin: 0;">Processador de Texto</h4>
+                        <hr>
+                        <label for="expression">Digite a expressão</label>
+                        
+                            <input list="expression-datalist" placeholder='Ex.: /T{usual|linha um|linha dois|linha tres}' id='expression' type="text" class="form-control">
+                            <datalist id="expression-datalist">
+                                <option value="/T{}">
+                                <option value="/P{}">
+                                <option value="/L{}">
+                                <option value="/R{}">
+                                <option value="/I{}">
+                                <option value="$<nome>/={}">
+                            </datalist>
+                            <span id="err" class="text-danger">Erro: comando não reconhecido ou inválido</span>
+                            <span id="err-var-exists" class="text-danger">Erro: variável já existente</span>
+                            <p></p>
+                            <div class="row">
+                                <div class="col-8"><button id='btn-processar' style="width: 100%;" class="btn btn-primary">Processar</button></div>
+                                <div class="col-4"><button style="width: 100%;" class="btn btn-secondary" id="btn-limpar">Limpar</button></div>
+                            </div>
+        
+                    </div>
+                </div>
+                <br>
+                <div class="card result-card">
+                    <div class="card-header text-center">
+                        Resultado
+                    </div>
+                    <div class="card-body" id="result">
+                        <div style="display: flex; align-items: center;">
+                            <div class="spinner-border text-dark" role="status">
+                                <span class="sr-only"></span>
+                            </div>
+                            <span style="margin-left: 1rem;"> Aguardando expressão...</span>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-4">
+                        <div class="card variables-card">
+                            <div class="card-header text-center">
+                                Variáveis salvas
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-bordered">
+                                    <thead>
+                                      <tr>
+                                        <th scope="col">Nome</th>
+                                        <th scope="col">Valor</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody id="variable-table-display">
+                                    
+                                      
+                                    </tbody>
+                                  </table>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-header text-center">
+                                Log de Comandos
+                            </div>
+                            <div class="card-body" id="log">
+                                
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                </div>
+                
+                
+            </div>
+            
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
